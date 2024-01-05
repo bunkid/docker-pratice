@@ -24,7 +24,7 @@ class  PaymentController
             await paymentService.updateOder(orderId);
             await paymentService.updateNumberSold(orderId);
             await paymentService.executePayment(paymentId, PayerID,total);
-            const redirectUrl = 'http://localhost:3002/order-complete?orderId=' + orderId + 'status=success';
+            const redirectUrl = 'https://main--stalwart-frangipane-b6bef3.netlify.app/order-complete?orderId=' + orderId + 'status=success';
             return res.writeHead(301, { Location: redirectUrl }).end();
         } catch (err) {
             next(err);
@@ -34,7 +34,7 @@ class  PaymentController
         try {
             const { orderId } = req.query;
             await paymentService.cancelPayment(orderId);
-            const redirectUrl = 'http://localhost:3002/checkout?orderId=' + orderId + 'status=failed';
+            const redirectUrl = 'https://main--stalwart-frangipane-b6bef3.netlify.app/checkout?orderId=' + orderId + 'status=failed';
             return res.writeHead(301, { Location: redirectUrl }).end();
         } catch (err) {
             next(err);
@@ -112,11 +112,11 @@ class  PaymentController
             if(vnp_ResponseCode == '00'){
                 await paymentService.updateOder(order_id);
                 await paymentService.updateNumberSold(order_id);
-                const redirectUrl = 'http://localhost:3002/order-complete?orderId=' + order_id + 'status=success';
+                const redirectUrl = 'https://main--stalwart-frangipane-b6bef3.netlify.app/order-complete?orderId=' + order_id + 'status=success';
                 return res.writeHead(301, { Location: redirectUrl }).end();
             } else {
                 await paymentService.cancelPayment(order_id);
-                const redirectUrl = 'http://localhost:3002/checkout?orderId=' + order_id + 'status=failed';
+                const redirectUrl = 'https://main--stalwart-frangipane-b6bef3.netlify.app/checkout?orderId=' + order_id + 'status=failed';
                 return res.writeHead(301, { Location: redirectUrl }).end();
             }
         } catch (error) {
