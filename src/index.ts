@@ -15,6 +15,7 @@ const allowedOrigins = [
   'http://localhost:3001',
   'http://localhost:3002',
   'http://localhost:4000',
+  'https://main--stalwart-frangipane-b6bef3.netlify.app'
 ];
 
 const corsOptions = {
